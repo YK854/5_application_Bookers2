@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
+
+
+
+# 画像とintroduction：自己紹介文
+#profile_image_id：「refile」による画像保存用
 
 end
