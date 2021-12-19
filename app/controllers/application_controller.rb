@@ -12,5 +12,4 @@ class ApplicationController < ActionController::Base
 
 # 画像とintroduction：自己紹介文
 #profile_image_id：「refile」による画像保存用
-
 end
