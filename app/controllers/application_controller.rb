@@ -2,14 +2,15 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # ログイン後の遷移先
+  def after_sign_in_path_for(resource)
+    users_info_index_path
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 
-
-
-# 画像とintroduction：自己紹介文
-#profile_image_id：「refile」による画像保存用
 end

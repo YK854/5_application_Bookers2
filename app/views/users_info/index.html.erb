@@ -4,17 +4,23 @@
     <div class="row">
       <div class="col-md-3">
         <h2>User info</h2>
-        <%= attachment_image_tag @user, :profile_image, :fill, 63, 63, format: 'jpeg', fallback: "no_image.jpg"  %>
+        <!--%= attachment_image_tag モデル名, :カラム名(末尾の_idは除く),format: '拡張子名(例: jpeg)', :fill, 横幅の数値(例: 100), 高さの数値 % -->
+        <%= attachment_image_tag @user_info, :profile_image, :fill, 63, 63, format: 'jpeg', fallback: "no_image.jpg"  %>
         <table class="table">
           <tbody>
             <tr></tr>
             <tr>
               <th>name</th>
-              <th><%= @user.name %></th>
+              <th><%= current_user.name %></th>
             </tr>
             <tr>
               <th>introduction</th>
-              <th><%= @user.introduction %></th>
+              <th>
+                <% if nil.blank? %>
+                <% else %>
+                  <%= @users.introduction %>
+                <% end %>
+              </th>
             </tr>
           </tbody>
         </table>
@@ -23,7 +29,7 @@
         </div>
 
         <h2>New book</h2>
-        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+        <%= form_with model: @books, url: books_path, local: true do |f| %>
 
           <div class="form-group">
             <%= f.label :Title %><br />
