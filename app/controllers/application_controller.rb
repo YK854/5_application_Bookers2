@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   # ログイン後の遷移先
   def after_sign_in_path_for(resource)
-    users_info_index_path
+    user_path(:id)
   end
 
   protected
