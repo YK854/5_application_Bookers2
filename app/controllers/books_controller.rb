@@ -1,9 +1,13 @@
 class BooksController < ApplicationController
 
   def new
+    @user = Book.new
   end
 
   def create
+    @user = Book.new(book_params)
+    @user.profile_image_id = current_user.id
+    @user.save
   end
 
   def index
