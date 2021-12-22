@@ -1,5 +1,4 @@
 <main>
-  <p id="notice"></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
       <!--部分テンプレート-->
@@ -20,7 +19,7 @@
             <% @users.each do |b| %>
               <tr>
                 <td>
-                  <%= attachment_image_tag b, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
+                  <%= attachment_image_tag b, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
                 </td>
                 <td>
                   <%= b.name %>
