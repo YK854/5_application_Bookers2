@@ -8,21 +8,13 @@
       <tr>
         <th>name</th>
         <th>
-          <% if nil.blank? %>
-            <%= current_user.name %>
-          <% else %>
-            <%= user.name %>
-          <% end %>
-          </th>
+          <%= user.name %>
+        </th>
       </tr>
       <tr>
         <th>introduction</th>
         <th>
-          <% if nil.blank? %>
-          <%= current_user.introduction %>
-          <% else %>
-            <%= user.introduction %>
-          <% end %>
+          <%= user.introduction %>
         </th>
       </tr>
     </tbody>
@@ -30,25 +22,19 @@
   <div class="row">
     <%= link_to "", edit_user_path(:id), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
   </div>
-
   <!--下記BOOK新規投稿欄-->
-  <!--部分添付ではform_with modelではなくURLにしなければエラー-->
   <h2 class="mt-3">New book</h2>
   <%= form_with url: books_path(:id), local: true do |f| %>
-
     <div class="form-group">
       <%= f.label :Title %><br />
       <%= f.text_field :title, autofocus: true, class: "form-control book_title" %>
     </div>
-
     <div class="form-group">
       <%= f.label :Opinion %><br />
       <%= f.text_area :body, class: "form-control book_body" %>
     </div>
-
     <div class="form-group">
       <%= f.submit "Create Book", class: "btn btn-success" %>
     </div>
-
   <% end %>
 </div>

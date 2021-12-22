@@ -17,18 +17,16 @@
             </tr>
           </thead>
           <tbody>
-            <% @users.each do |u| %>
+            <% @users.each do |b| %>
               <tr>
                 <td>
-                 <%= link_to book_path(u.id) do %>
-                    <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
-                  <% end %>
+                  <%= attachment_image_tag b, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
                 </td>
                 <td>
-                  <%= u.name %>
+                  <%= b.name %>
                 </td>
                 <td>
-                  <%= link_to "Show", root_path %>
+                  <%= link_to "Show", user_path(b.id) %>
                 </td>
               </tr>
             <% end %>

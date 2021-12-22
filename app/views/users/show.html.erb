@@ -1,5 +1,5 @@
 <main>
-  <p id="notice"></p>
+  <p id="notice"><%= flash[:success] %></p>
   <div class="container px-5 px-sm-0">
     <div class="row">
       <!--部分テンプレート-->
@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @user.books.each do |b| %>
+            <% @books.each do |b| %>
               <tr>
                 <td>
                   <%= link_to book_path(b.id) do %>
