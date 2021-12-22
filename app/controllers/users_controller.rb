@@ -2,10 +2,12 @@ class UsersController < ApplicationController
 
 
   def index
-    @user = User.all
+    @users = User.all
+    @user = User.find_by(params[:id])
   end
 
   def show
+    @books = Book.all
     @user = User.find_by(params[:id])
   end
 
